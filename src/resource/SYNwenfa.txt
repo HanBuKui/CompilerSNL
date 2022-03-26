@@ -1,0 +1,104 @@
+Program ProgramHead DeclarePart ProgramBody .
+ProgramHead PROGRAM ProgramName
+ProgramName ID
+DeclarePart TypeDecpart VarDecpart ProcDecpart
+TypeDecpart ε
+TypeDecpart TypeDec
+TypeDec TYPE TypeDecList
+TypeDecList TypeId = TypeDef ; TypeDecMore
+TypeDecMore ε
+TypeDecMore TypeDecList
+TypeId ID
+TypeDef BaseType
+TypeDef StructureType
+TypeDef ID
+BaseType INTEGER
+BaseType CHAR
+StructureType ArrayType
+StructureType RecType
+ArrayType ARRAY [ Low .. Top ] OF BaseType
+Low INTC
+Top INTC
+RecType RECORD FieldDecList END
+FieldDecList BaseType IdList ; FieldDecMore
+FieldDecList ArrayType IdList ; FieldDecMore
+FieldDecMore ε
+FieldDecMore FieldDecList
+IdList ID IdMore
+IdMore ε
+IdMore , IdList
+VarDecpart ε
+VarDecPart VarDec
+VarDec VAR VarDecList
+VarDecList TypeDef VarIdList ; VarDecMore
+VarDecMore ε
+VarDecMore VarDecList
+VarIdList ID VarIdMore
+VarIdMore ε
+VarIdMore , VarIdList
+ProcDecpart ε
+ProcDecPart ProcDec
+ProcDec PROCEDURE ProcName ( ParamList ) ; DecPartInner ProcBody ProcDecMore
+ProcDecMore ε
+ProcDecMore ProcDeclaration
+ProcName ID
+ParamList ε
+ParamList ParamDecList
+ParamDecList Param ParamMore
+ParamMore ε
+ParamMore ; ParamDecList
+Param TypeDef FormList
+Param VAR TypeDef FormList
+FormList ID FidMore
+FidMore ε
+FidMore , FormList
+ProcDecPart DeclarePart
+ProcBody ProgramBody
+ProgramBody BEGIN StmList END
+StmList Stm StmMore
+StmMore ε
+StmMore ; StmList
+Stm ConditionalStm
+Stm LoopStm
+Stm InputStm
+Stm OutputStm
+Stm ReturnStm
+Stm ID AssCall
+AssCall AssignmentRest
+AssCall CallStmRest
+AssignmentRest VariMore := Exp
+ConditionalStm IF RelExp THEN StmList ELSE StmList FI
+LoopStm WHILE RelExp DO StmList ENDWH
+InputStm READ ( Invar )
+Invar ID
+OutputStm WRITE( Exp )
+ReturnStm RETURN
+CallStmRest ( ActParamList )
+ActParamList ε
+ActParamList Exp ActParamMore
+ActParamMore ε
+ActParamMore , ActParamList
+RelExp Exp OtherRelE
+OtherRelE CmpOp Exp
+Exp Term OtherTerm
+OtherTerm ε
+OtherTerm AddOp Exp
+Term Factor OtherFactor
+OtherFactor ε
+OtherFactorMultOp Term
+Factor ( Exp )
+Factor INTC
+Factor Variable
+Variable ID VariMore
+VariMore ε
+VariMore [ Exp ]
+VariMore . FieldVar
+FieldVar ID FieldVarMore
+FieldVarMore ε
+FieldVarMore [ Exp ]
+CmpOp <
+CmpOp =
+AddOp +
+AddOp -
+MultOp *
+MultOp /

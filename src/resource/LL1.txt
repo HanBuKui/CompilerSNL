@@ -1,0 +1,104 @@
+Program PROGRAM
+ProgramHead PROGRAM
+ProgramName ID
+DeclarePart TYPE  VAR  PROCEDURE  BEGIN
+TypeDecpart VAR  PROCEDURE  BEGIN
+TypeDecpart TYPE
+TypeDec TYPE
+TypeDecList ID
+TypeDecMore VAR PROCEDURE BEGIN
+TypeDecMore ID
+TypeId ID
+TypeDef INTEGER  CHAR
+TypeDef ARRAY  RECORD
+TypeDef ID
+BaseType INTEGER
+BaseType CHAR
+StructureType ARRAY
+StructureType RECORD
+ArrayType ARRAY
+Low INTC
+Top INTC
+RecType RECORD
+FieldDecList INTEGER  CHAR
+FieldDecList ARRAY
+FieldDecMore END
+FieldDecMore INTEGER CHAR ARRAY
+IdList ID
+IdMore SEMI
+IdMore COMMA
+VarDecpart PROCEDURE  BEGIN
+VarDecpart VAR
+VarDec VAR
+VarDecList INTEGER CHAR ARRAY  RECORD  ID
+VarDecMore PROCEDURE  BEGIN
+VarDecMore INTEGER CHAR ARRAY  RECORD ID
+VarIdList ID
+VarIdMore SEMI
+VarIdMore COMMA
+ProcDecpart BEGIN
+ProcDecpart PROCEDURE
+ProcDec PROCEDURE
+ProcDecMore BEGIN
+ProcDecMore PROCEDURE
+ProcName ID
+ParamList RPAREN
+ParamList INTEGER CHAR ARRAY  RECORD ID  VAR
+ParamDecList INTEGER CHAR ARRAY  RECORD  ID  VAR
+ParamMore RPAREN
+ParamMore SEMI
+Param INTEGER CHAR ARRAY  RECORD ID
+Param VAR
+FormList ID
+FidMore SEMI COMMA RPAREN
+FidMore COMMA
+ProcDecPart TYPE  VAR  PROCEDURE  BEGIN
+ProcBody BEGIN
+ProgramBody BEGIN
+StmList ID  IF  WHILE  RETURN  READ WRITE
+StmMore ELSE   FI  END ENDWH
+StmMore SEMI
+Stm IF
+Stm WHILE
+Stm READ
+Stm WRITE
+Stm RETURN
+Stm ID
+AssCall ASSIGN LMIDPAREN .
+AssCall LPAREN
+AssignmentRest [   DOT  ASSIGN
+ConditionalStm IF
+LoopStm WHILE
+InputStm READ
+Invar ID
+OutputStm WRITE
+ReturnStm RETURN
+CallStmRest LPAREN
+ActParamList RPAREN
+ActParamList LPAREN   INTC  ID
+ActParamMore RPAREN
+ActParamMore COMMA
+RelExp LPAREN   INTC  ID
+OtherRelE LT   =
+Exp LPAREN   INTC  ID
+OtherTerm LT   =  ]   THEN  ELSE  FI  DO  ENDWH   RPAREN   END  SEMI  COMMA
+OtherTerm PLUS   MINUS
+Term LPAREN   INTC  ID
+OtherFactor PLUS  MINUS  LT  =   ]   THEN   ELSE   FI  DO  ENDWH  RPAREN  END  SEMI  COMMA
+OtherFactorMultOp TIMES   DIVIDE
+Factor LPAREN
+Factor INTC
+Factor ID
+Variable ID
+VariMore ASSIGN  TIMES   DIVIDE   PLUS   MINUS   LT  = THEN  ELSE  FI  DO  ENDWH  RPAREN END  SEMI  COMMA RMIDPAREN
+VariMore [
+VariMore DOT
+FieldVar ID
+FieldVarMore ASSIGN  TIMES   DIVIDE   PLUS   MINUS   LT  = THEN  ELSE  FI  DO  ENDWH  RPAREN END  SEMI  COMMA
+FieldVarMore [
+CmpOp LT
+CmpOp =
+AddOp PLUS
+AddOp MINUS
+MultOp TIMES
+MultOp DIVIDE
